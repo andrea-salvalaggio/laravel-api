@@ -114,10 +114,15 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div");
+  return _vm._m(0);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_c("h1", [_vm._v("Home")])]);
+}];
 render._withStripped = true;
 
 
@@ -12531,7 +12536,8 @@ var app = new Vue({
   el: '#root',
   render: function render(h) {
     return h(_views_App__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  }
+  } // Show App when Vue starts
+
 });
 
 /***/ }),
