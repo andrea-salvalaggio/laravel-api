@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use Illuminate\Http\Client\ResponseSequence;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -56,14 +57,14 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        if ($post)
+        if ($post){
             return response()->json([
-            'response' => true,
-            'results' => [
-                'data' => $post
-            ]
-        ]);
-        else return response('', 404);
+                'response' => true,
+                'results' => [
+                    'data' => $post
+                ]
+            ]);
+        } else return response('', 404);
     }
 
     /**
@@ -97,6 +98,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::destroy($id);
+        return response('', 204);
     }
 }
