@@ -2003,9 +2003,12 @@ var render = function render() {
     staticClass: "row justify-content-center"
   }, [_c("div", {
     staticClass: "col-6 mt-5"
-  }, [_c("h1", [_vm._v("Posts:")]), _vm._v(" "), _vm._l(_vm.posts, function (post) {
+  }, [_c("h1", {
+    staticClass: "font-weight-bold"
+  }, [_vm._v("Posts")]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._l(_vm.posts, function (post) {
     return _c("PostCard", {
       key: post.id,
+      staticClass: "my-5",
       attrs: {
         post: post
       }
@@ -2035,7 +2038,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "card mt-5"
+    staticClass: "card"
   }, [_c("img", {
     staticClass: "card-img-top img-fluid",
     attrs: {
