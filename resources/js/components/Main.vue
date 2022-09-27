@@ -5,7 +5,9 @@
                 <div class="col-12 mt-5">
                     <h1>Posts:</h1>
                 
-                    <PostCard/>
+                    <ul>
+                        <li v-for="post in posts" :key="post.id">{{ post.post_title }}</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -13,14 +15,9 @@
 </template>
 
 <script>
-import PostCard from './PostCard.vue';
 import axios from 'axios';
 
     export default {
-
-    components: {
-        PostCard,
-    },
 
     data: function () {
         return {
@@ -34,8 +31,8 @@ import axios from 'axios';
             axios.get("/api/posts", {
                 page: postsPage
             }).then((response) => {
-                console.log(response.data.results.current_page);
-                this.posts = response.data.results;
+                // console.log(response.data.results.data)
+                this.posts = response.data.results.data;
                 this.currentPage = response.data.results.current_page;
                 this.lastPage = response.data.results.last_page;
             }).catch((error) => {
@@ -46,7 +43,6 @@ import axios from 'axios';
     created() {
         this.getPosts();
     },
-    components: { PostCard }
 }
 
 </script>
