@@ -5,9 +5,7 @@
                 <div class="col-12 mt-5">
                     <h1>Posts:</h1>
                 
-                    <ul class="list-group">
-                        <li class="list-group-item">An item</li>
-                    </ul>
+                    <PostCard/>
                 </div>
             </div>
         </div>
@@ -15,35 +13,41 @@
 </template>
 
 <script>
-    import axios from 'axios';
+import PostCard from './PostCard.vue';
+import axios from 'axios';
 
     export default {
-        
-        data: function(){
-            return{
-                posts: [],
-                currentPage: 1,
-                lastPage: null,
-            }  
-        },
 
-        methods:{
-            getPosts(postsPage = 1){
-               axios.get('/api/posts', {
-                    page: postsPage
-                }).then((response) => {
-                    console.log(response);
-                }).catch((error) => {
-                    console.log('error');
-                })
-            }
-        },
+    components: {
+        PostCard,
+    },
 
-        created(){
-            this.getPosts();
+    data: function () {
+        return {
+            posts: [],
+            currentPage: 1,
+            lastPage: null,
+        };
+    },
+    methods: {
+        getPosts(postsPage = 1) {
+            axios.get("/api/posts", {
+                page: postsPage
+            }).then((response) => {
+                console.log(response.data.results.current_page);
+                this.posts = response.data.results;
+                this.currentPage = response.data.results.current_page;
+                this.lastPage = response.data.results.last_page;
+            }).catch((error) => {
+                console.log("error");
+            });
         }
-    
-    }
+    },
+    created() {
+        this.getPosts();
+    },
+    components: { PostCard }
+}
 
 </script>
 
