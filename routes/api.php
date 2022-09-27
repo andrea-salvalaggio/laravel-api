@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Add 'Api' to the folder link for reach the controller
+Route::namespace('Api')->group(function(){
+    Route::get('/posts', 'PostController@index');
+    Route::get('/posts/{id}', 'PostController@show');
+});
