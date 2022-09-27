@@ -23,7 +23,7 @@
 
     {{-- Vue JS --}}
     <div id="root">
-
+        
     </div>
 
 </body>
