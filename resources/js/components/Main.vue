@@ -1,13 +1,10 @@
 <template>
     <main>
         <div class="container">
-            <div class="row">
-                <div class="col-12 mt-5">
+            <div class="row justify-content-center">
+                <div class="col-6 mt-5">
                     <h1>Posts:</h1>
-                
-                    <ul>
-                        <li v-for="post in posts" :key="post.id">{{ post.post_title }}</li>
-                    </ul>
+                    <PostCard v-for="post in posts" :key="post.id" :post="post"/>
                 </div>
             </div>
         </div>
@@ -15,9 +12,14 @@
 </template>
 
 <script>
+import PostCard from './PostCard.vue';
 import axios from 'axios';
 
     export default {
+    
+    components: {
+        PostCard,
+    },
 
     data: function () {
         return {
