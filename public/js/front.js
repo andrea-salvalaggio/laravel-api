@@ -1920,7 +1920,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       posts: [],
-      tags: [],
       currentPage: 1,
       lastPage: null
     };
@@ -1940,21 +1939,10 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log("error");
       });
-    },
-    getTags: function getTags() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/tags", {}).then(function (response) {
-        // console.log(response.data.results.data)
-        _this2.tags = response.data.results.data;
-      })["catch"](function (error) {
-        console.log("error");
-      });
     }
   },
   created: function created() {
     this.getPosts();
-    this.getTags();
   }
 });
 
@@ -1989,7 +1977,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['tag']
+});
 
 /***/ }),
 
@@ -2079,7 +2069,14 @@ var render = function render() {
     staticClass: "card-body"
   }, [_c("h2", [_vm._v(_vm._s(_vm.post.post_title))]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_vm._v(_vm._s(_vm.post.post_content))]), _vm._v(" "), _c("p", [_vm._v("Post written by " + _vm._s(_vm.post.user.name) + " | on " + _vm._s(_vm.post.post_date))]), _vm._v(" "), _c("TagPost")], 1)]);
+  }, [_vm._v(_vm._s(_vm.post.post_content))]), _vm._v(" "), _c("p", [_vm._v("Post written by " + _vm._s(_vm.post.user.name) + " | on " + _vm._s(_vm.post.post_date))]), _vm._v(" "), _vm._l(_vm.post.tags, function (tag) {
+    return _c("TagPost", {
+      key: tag.id,
+      attrs: {
+        tag: tag
+      }
+    });
+  })], 2)]);
 };
 
 var staticRenderFns = [];
@@ -2103,15 +2100,10 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
+  return _c("div", [_c("p", [_vm._v(_vm._s(_vm.tag.name))])]);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", [_c("p", [_vm._v("CIAO")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 

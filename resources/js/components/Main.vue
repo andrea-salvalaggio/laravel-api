@@ -25,7 +25,6 @@ import axios from 'axios';
     data: function () {
         return {
             posts: [],
-            tags: [],
             currentPage: 1,
             lastPage: null,
         };
@@ -44,21 +43,10 @@ import axios from 'axios';
                 console.log("error");
             });
         },
-
-        getTags() {
-            axios.get("/api/tags", {
-            }).then((response) => {
-                // console.log(response.data.results.data)
-                this.tags = response.data.results.data;
-            }).catch((error) => {
-                console.log("error");
-            });
-        }
     },
 
     created() {
         this.getPosts();
-        this.getTags();
     },
 }
 

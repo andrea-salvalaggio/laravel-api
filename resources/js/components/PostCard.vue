@@ -5,7 +5,9 @@
             <h2>{{ post.post_title }}</h2>
             <p class="card-text">{{ post.post_content }}</p>
             <p>Post written by {{ post.user.name }} | on {{ post.post_date }}</p>
-            <TagPost/>
+
+            <!-- Add tags in PostCard -->
+            <TagPost v-for="tag in post.tags" :key="tag.id" :tag="tag"/>
         </div>
     </div>
 </template>
