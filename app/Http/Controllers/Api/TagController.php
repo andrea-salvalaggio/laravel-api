@@ -53,6 +53,7 @@ class TagController extends Controller
     public function show($id)
     {
         $tag = Tag::with('posts')->findOrFail($id);
+        
         return response()->json([
             'response' => true,
             'results' => $tag

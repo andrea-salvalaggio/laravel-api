@@ -1920,6 +1920,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       posts: [],
+      tags: [],
       currentPage: 1,
       lastPage: null
     };
@@ -1939,10 +1940,18 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log("error");
       });
+    },
+    getTags: function getTags() {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/tags", {}).then(function (response) {
+        console.log(response.data.results.data); // this.posts = response.data.results.data;
+      })["catch"](function (error) {
+        console.log("error");
+      });
     }
   },
   created: function created() {
     this.getPosts();
+    this.getTags();
   }
 });
 
@@ -1957,6 +1966,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['post']
 });
