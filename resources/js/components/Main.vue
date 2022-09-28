@@ -30,7 +30,7 @@ import axios from 'axios';
             lastPage: null,
         };
     },
-    
+
     methods: {
         getPosts(postsPage = 1) {
             axios.get("/api/posts", {
@@ -48,8 +48,8 @@ import axios from 'axios';
         getTags() {
             axios.get("/api/tags", {
             }).then((response) => {
-                console.log(response.data.results.data)
-                // this.posts = response.data.results.data;
+                // console.log(response.data.results.data)
+                this.tags = response.data.results.data;
             }).catch((error) => {
                 console.log("error");
             });

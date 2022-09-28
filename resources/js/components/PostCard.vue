@@ -5,17 +5,22 @@
             <h2>{{ post.post_title }}</h2>
             <p class="card-text">{{ post.post_content }}</p>
             <p>Post written by {{ post.user.name }} | on {{ post.post_date }}</p>
+            <TagPost/>
         </div>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+import TagPost from './TagPost.vue';
 
 export default {
 
+    components: {
+        TagPost,
+    },
+
     props: ['post'],
-    
+
 }
 </script>
 
