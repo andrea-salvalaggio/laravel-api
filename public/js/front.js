@@ -2067,16 +2067,22 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "card-body"
-  }, [_c("h2", [_vm._v(_vm._s(_vm.post.post_title))]), _vm._v(" "), _c("p", {
+  }, [_c("h2", {
+    staticClass: "font-weight-bold"
+  }, [_vm._v(_vm._s(_vm.post.post_title))]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_vm._v(_vm._s(_vm.post.post_content))]), _vm._v(" "), _c("p", [_vm._v("Post written by " + _vm._s(_vm.post.user.name) + " | on " + _vm._s(_vm.post.post_date))]), _vm._v(" "), _vm._l(_vm.post.tags, function (tag) {
+  }, [_vm._v(_vm._s(_vm.post.post_content))]), _vm._v(" "), _c("p", [_vm._v("Post written by " + _vm._s(_vm.post.user.name) + " | on " + _vm._s(_vm.post.post_date))]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex"
+  }, [_c("h5", {
+    staticClass: "font-weight-bold"
+  }, [_vm._v("Tags: ")]), _vm._v(" "), _vm._l(_vm.post.tags, function (tag) {
     return _c("TagPost", {
       key: tag.id,
       attrs: {
         tag: tag
       }
     });
-  })], 2)]);
+  })], 2)])]);
 };
 
 var staticRenderFns = [];
@@ -2100,7 +2106,7 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("p", [_vm._v(_vm._s(_vm.tag.name))])]);
+  return _c("span", [_vm._v("  #" + _vm._s(_vm.tag.name) + "  ")]);
 };
 
 var staticRenderFns = [];

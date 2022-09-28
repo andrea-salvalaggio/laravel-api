@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <p>{{ tag.name }}</p>
-    </div>
+        <span>&nbsp; #{{ tag.name }} &nbsp;</span>
 </template>
 
 <script>
