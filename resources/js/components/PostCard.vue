@@ -1,5 +1,5 @@
 <template>
-    <div class="card mt-5">
+    <div class="card">
         <img class="card-img-top img-fluid" :src="post.post_image" alt="">
         <div class="card-body">
             <h2>{{ post.post_title }}</h2>

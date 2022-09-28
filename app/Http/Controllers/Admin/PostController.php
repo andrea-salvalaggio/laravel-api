@@ -67,10 +67,10 @@ class PostController extends Controller
 
         $data['user_id'] = Auth::id();
         $data['post_date'] = new DateTime();
+        $data['post_image'] = Storage::put('uploads', $data['post_image']);
 
         $newPost = new Post();
         $newPost->fill($data);
-        $data['post_image'] = Storage::put('uploads', $data['post_image']);
         $newPost->save();
         $newPost->tags()->sync($data['tags']);
 
