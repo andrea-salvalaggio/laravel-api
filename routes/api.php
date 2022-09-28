@@ -25,4 +25,7 @@ Route::namespace('Api')->group(function(){
 
     // Delete data only if user is logged
     Route::middleware('auth:api')->delete('/posts/{id}', 'PostController@destroy');
+
+    Route::get('/tags', 'TagController@index');
+    Route::get('/tags/{id}', 'TagController@show');
 });
