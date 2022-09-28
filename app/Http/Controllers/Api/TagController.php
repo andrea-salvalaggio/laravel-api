@@ -18,6 +18,7 @@ class TagController extends Controller
         $tags = Tag::with('posts')->paginate(10);
         return response()->json([
             'response' => true,
+            // 'count' => count($tags),
             'results' => $tags
         ]);
     }
@@ -51,7 +52,11 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = Tag::with('posts')->findOrFail($id);
+        return response()->json([
+            'response' => true,
+            'results' => $tag
+        ]);
     }
 
     /**
